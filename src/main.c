@@ -65,6 +65,7 @@ bool option_select(int option)
 
     case 2:
         //Call a function to remove a user
+        printf("Chamo a funcao delete\n");
         person_delete(); 
         break;
 
@@ -129,7 +130,6 @@ void person_add_new(void)
 
 void person_delete(void)
 {
-    /*
     int items = count_items(); 
 
     person_t *persons = (person_t *) malloc(sizeof(person_t) * items);
@@ -137,8 +137,10 @@ void person_delete(void)
     {
         return;
     }
-
+   
+    printf("Foi abrir o arquivo para leitura\n");
     FILE *f = fopen(DATABASE, "r");
+    printf("O arquivo foi abrto com sucesso\n");
 
     for(int i = 0; i < items; i++)
     {
@@ -182,7 +184,6 @@ void person_delete(void)
     }
 
     free(persons);
-    */  
 }
 
 void person_update(void)
@@ -220,7 +221,8 @@ int count_items(void)
     FILE *f;
     int items = 0;
  
-    /*
+    printf("Entarda na funcao count items\n");
+
     if(is_database_exists())
     {
         f = fopen(DATABASE, "r");
@@ -243,7 +245,7 @@ int count_items(void)
     }
     
     fclose(f);
-    printf("Itens: %d", items);
-    */
+    printf("Itens: %d\n", items);
+    
     return items;  
 }
