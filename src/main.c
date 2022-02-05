@@ -129,6 +129,7 @@ void person_add_new(void)
 
 void person_delete(void)
 {
+    /*
     int items = count_items(); 
 
     person_t *persons = (person_t *) malloc(sizeof(person_t) * items);
@@ -171,12 +172,17 @@ void person_delete(void)
     f = fopen(DATABASE, "w");
     
     for(int i = 0; i < items; i++)
+    {
+        if(persons[i].name[0] == '\0' || persons[i].address[0] == '\0') 
         {
-        if(persons[i].name)
-        {
-
+            continue;
         }
-    }  
+ 
+        fprintf(f, "%s,  %s,  %d\n", persons[i].name, persons[i].address, persons->age);
+    }
+
+    free(persons);
+    */  
 }
 
 void person_update(void)
@@ -210,9 +216,11 @@ bool is_database_exists(void)
 
 int count_items(void)
 {
+
     FILE *f;
     int items = 0;
-
+ 
+    /*
     if(is_database_exists())
     {
         f = fopen(DATABASE, "r");
@@ -223,6 +231,7 @@ int count_items(void)
     }
 
     char c = fgetc(f);
+    
     while(c != EOF)
     {
         if(c == '\n')
@@ -234,5 +243,7 @@ int count_items(void)
     }
     
     fclose(f);
+    printf("Itens: %d", items);
+    */
     return items;  
 }
